@@ -22,11 +22,14 @@ public class RunAuton extends SequentialCommandGroup {
 
     @Override
     public void initialize() {
-        addCommands(new AutonChassis(-.5,.25,1,mChassis));
-        addCommands(new AutonChassis(0,0,1,mChassis));
-        addCommands(new AutonChassis(.5,-.25,1,mChassis));
-        addCommands(new AutonChassis(0,0,1,mChassis));
-        addCommands(new AutonChassis(-.7,0,1,mChassis));
+
+        addCommands(new AutonChassis(-.5,0,1,mChassis));
+        addCommands(new AutonChassis(0, 0, 1, mChassis));
+        //addCommands(new AutonChassis(0,0,1,mChassis));
+        //addCommands(new AutonChassis(.5,-.25,1,mChassis));
+        //addCommands(new AutonChassis(0,0,1,mChassis));
+        addCommands(new AutonChassis(.5,0,1,mChassis));
+
         super.initialize();
     }
 }
