@@ -24,13 +24,8 @@ public class Chassis extends SubsystemBase {
         chassisDifferentialDrive.arcadeDrive(chassisSpeed, chassisRotation);
     }
 
-    @Override
-    public void periodic() {
-      // This method will be called once per scheduler run
-    }
-  
-    @Override
-    public void simulationPeriodic() {
-      // This method will be called once per scheduler run during simulation
+
+    public void runJoystick(double x, double z){
+      chassisDifferentialDrive.curvatureDrive(x, z,true);
     }
 }

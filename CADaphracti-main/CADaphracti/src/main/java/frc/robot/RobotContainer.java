@@ -18,16 +18,16 @@ import frc.robot.subsystems.Chassis;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final Chassis m_Chassis = new Chassis();
+  public final static Chassis m_Chassis = new Chassis();
 
-  private final RunChassis m_autoCommand = new RunChassis(m_Chassis);
+  public final RunChassis m_autoCommand = new RunChassis(m_Chassis);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+  
   }
-
   public static XboxController driverController = new XboxController(Constants.DRIVER_CONTROLLER);
 
 
