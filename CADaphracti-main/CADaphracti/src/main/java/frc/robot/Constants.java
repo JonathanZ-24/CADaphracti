@@ -16,7 +16,11 @@ public final class Constants {
 	// CHECK TO SEE THAT ALL OF THESE PORTS ARE CORRECT BEFORE RUNNING
 	public static final int CHASSIS_LEFT_MOTOR = 0;
 	public static final int CHASSIS_RIGHT_MOTOR = 1;
+	public static final int BUCKET_MOTOR = 2;
+
 	public static final int DRIVER_CONTROLLER = 0;
+
 	public static final int DRIVER_CONTROLLER_MOVE_AXIS = 1;
 	public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 4;
+
 }
