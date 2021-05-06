@@ -25,7 +25,9 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
+    cBucket.setDefaultCommand(new RunBucket(RobotContainer.cBucket));
     configureButtonBindings();
+
   
   }
   public static XboxController driverController = new XboxController(Constants.DRIVER_CONTROLLER);
@@ -38,8 +40,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    JoystickButton bButton = new JoystickButton(driverController, XboxController.Button.kB.value);
-    bButton.whenPressed(new RunBucket(cBucket));
+
+    JoystickButton aButton = new JoystickButton(driverController, XboxController.Button.kA.value);
+    aButton.whenPressed(new RunBucket(cBucket));
   }
 
   /**
