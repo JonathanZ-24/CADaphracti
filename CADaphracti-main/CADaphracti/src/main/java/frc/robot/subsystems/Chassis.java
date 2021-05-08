@@ -34,6 +34,6 @@ public class Chassis extends SubsystemBase {
 
 
     public void runJoystick(double x, double z){
-      chassisDifferentialDrive.curvatureDrive(x, z,true);
+      chassisDifferentialDrive.curvatureDrive(-x, z,true);
     }
 }
