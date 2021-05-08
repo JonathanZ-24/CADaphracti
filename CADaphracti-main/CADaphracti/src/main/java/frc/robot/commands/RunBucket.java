@@ -24,7 +24,12 @@ public class RunBucket extends CommandBase {
 
   @Override
   public void execute() {
-    mBucket.runBucket();
+    mBucket.runBucket(-8000);
+  }
+
+  @Override
+  public void end(boolean isFinished) {
+    mBucket.bucketMotor.set(0);
   }
 
 }

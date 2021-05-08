@@ -19,23 +19,48 @@ public class Bucket extends SubsystemBase {
   // here. Call these from Commands.
   
     public static WPI_TalonFX bucketMotor = null;
+    private boolean isBreaking = true;
 
     public Bucket() {
         bucketMotor = new WPI_TalonFX(Constants.BUCKET_MOTOR);
 
 
-        bucketMotor.config_kP(0, 1.0);
+
+        bucketMotor.config_kP(0, 0.05);
         bucketMotor.config_kI(0,0);
-        bucketMotor.config_kD(0,0);
+        bucketMotor.config_kD(0,0.45);
+
+        bucketMotor.setNeutralMode(NeutralMode.Brake);
         bucketMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
+        bucketMotor.configPeakOutputForward(.1);
         bucketMotor.setSelectedSensorPosition(0);
+
 
 
 
 
     }
 
-    public void runBucket() {
-        bucketMotor.set(ControlMode.Position,512);
+    public void runBucket(int position) {
+        bucketMotor.set(ControlMode.Position,position);
+//        bucketMotor.set(.2);
+    }
+
+    public void neutralBucket(){
+        bucketMotor.set(ControlMode.Position,0);
+    }
+
+    public void toggleBrake(){
+        if(isBreaking){
+            bucketMotor.setNeutralMode(NeutralMode.Coast);
+            isBreaking = false;
+        } else{
+            bucketMotor.setNeutralMode(NeutralMode.Brake);
+            isBreaking = true;
+        }
+    }
+    @Override
+    public void periodic() {
+        bucketMotor.feed();
     }
 }

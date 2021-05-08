@@ -5,7 +5,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.RunBucket;
+import frc.robot.commands.RunBucketBack;
 import frc.robot.commands.RunChassis;
+import frc.robot.commands.ToggleBucket;
 import frc.robot.subsystems.Bucket;
 import frc.robot.subsystems.Chassis;
 
@@ -25,7 +27,8 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
-    cBucket.setDefaultCommand(new RunBucket(RobotContainer.cBucket));
+
+
     configureButtonBindings();
 
   
@@ -41,8 +44,13 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
+//    RobotContainer.cBucket.setDefaultCommand(new RunBucket(RobotContainer.cBucket));
     JoystickButton aButton = new JoystickButton(driverController, XboxController.Button.kA.value);
-    aButton.whenPressed(new RunBucket(cBucket));
+    aButton.whileHeld(new RunBucket(cBucket));
+
+    new JoystickButton(driverController,XboxController.Button.kB.value).whileHeld(new RunBucketBack(cBucket));
+
+    new JoystickButton(driverController,XboxController.Button.kBumperRight.value).whenPressed(new ToggleBucket(cBucket));
   }
 
   /**
