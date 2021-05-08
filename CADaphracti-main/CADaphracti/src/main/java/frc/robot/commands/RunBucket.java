@@ -25,13 +25,14 @@ public class RunBucket extends CommandBase {
 
   @Override
   public void execute() {
-    if (mBucket.bucketMotor.getSelectedSensorPosition() <= -1000.0) {
-      mBucket.bucketMotor.set(TalonFXControlMode.PercentOutput, 0.3);
-
-    } else {
-      mBucket.bucketMotor.set(0.0);
-    }
-    System.out.println(mBucket.bucketMotor.getSelectedSensorPosition());
+    mBucket.runBucket(0.1);
+//    if (mBucket.bucketMotor.getSelectedSensorPosition() <= -1000.0) {
+//      mBucket.bucketMotor.set(TalonFXControlMode.PercentOutput, 0.3);
+//
+//    } else {
+//      mBucket.bucketMotor.set(0.0);
+//    }
+//    System.out.println(mBucket.bucketMotor.getSelectedSensorPosition());
   }
 
   @Override

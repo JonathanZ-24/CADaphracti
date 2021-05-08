@@ -43,9 +43,9 @@ public class Bucket extends SubsystemBase {
 
     }
 
-    public void runBucket(int position) {
-        bucketMotor.set(ControlMode.Position,position);
-//        bucketMotor.set(.2);
+    public void runBucket(double speed) {
+//        bucketMotor.set(ControlMode.Position,position);
+        bucketMotor.set(speed);
     }
 
     public void neutralBucket(){
