@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Bucket;
 
@@ -24,7 +25,13 @@ public class RunBucketBack extends CommandBase {
 
     @Override
     public void execute() {
-        mBucket.runBucket(0);
+        if (mBucket.bucketMotor.getSelectedSensorPosition() >= -8000.0) {
+            mBucket.bucketMotor.set(TalonFXControlMode.PercentOutput, -0.3);
+            System.out.println(mBucket.bucketMotor.getSelectedSensorPosition());
+        } else {
+            mBucket.bucketMotor.set(0.0);
+        }
+        System.out.println(mBucket.bucketMotor.getSelectedSensorPosition());
     }
 
     @Override

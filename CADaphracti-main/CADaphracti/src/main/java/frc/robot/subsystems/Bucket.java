@@ -26,14 +26,16 @@ public class Bucket extends SubsystemBase {
 
 
 
-        bucketMotor.config_kP(0, 0.05);
+        bucketMotor.config_kP(0, 0.15);
         bucketMotor.config_kI(0,0);
-        bucketMotor.config_kD(0,0.45);
+        bucketMotor.config_kD(0,0.95);
 
         bucketMotor.setNeutralMode(NeutralMode.Brake);
         bucketMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
-        bucketMotor.configPeakOutputForward(.1);
         bucketMotor.setSelectedSensorPosition(0);
+
+        bucketMotor.configPeakOutputForward(1.0);
+        bucketMotor.configPeakOutputReverse(-1.0);
 
 
 
@@ -57,6 +59,7 @@ public class Bucket extends SubsystemBase {
         } else{
             bucketMotor.setNeutralMode(NeutralMode.Brake);
             isBreaking = true;
+            System.out.println("Braking");
         }
     }
     @Override
