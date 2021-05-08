@@ -28,7 +28,7 @@ public class Bucket extends SubsystemBase {
 
         bucketMotor.config_kP(0, 0.15);
         bucketMotor.config_kI(0,0);
-        bucketMotor.config_kD(0,0.95);
+        bucketMotor.config_kD(0, 0.2);
 
         bucketMotor.setNeutralMode(NeutralMode.Brake);
         bucketMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
