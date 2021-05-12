@@ -25,7 +25,7 @@ public class RunBucketBack extends CommandBase {
 
     @Override
     public void execute() {
-        mBucket.runBucket(-0.1);
+        mBucket.runBucket(-0.35);
 //        if (mBucket.bucketMotor.getSelectedSensorPosition() >= -8000.0) {
 //            mBucket.bucketMotor.set(TalonFXControlMode.PercentOutput, -0.3);
 //            System.out.println(mBucket.bucketMotor.getSelectedSensorPosition());

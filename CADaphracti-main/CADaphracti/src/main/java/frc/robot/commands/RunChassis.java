@@ -26,7 +26,7 @@ public class RunChassis extends CommandBase {
     @Override
     public void execute() {
         double chassisSpeed = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_MOVE_AXIS);
-        double chassisRotation = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_ROTATE_AXIS);
+        double chassisRotation = 0.6*RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_ROTATE_AXIS);
 
         m_drive.runJoystick(chassisSpeed, chassisRotation);
     }

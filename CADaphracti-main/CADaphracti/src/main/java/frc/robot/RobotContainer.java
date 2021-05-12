@@ -46,7 +46,7 @@ public class RobotContainer {
     new JoystickButton(driverController, XboxController.Button.kY.value).whileHeld(new RunBucket(cBucket));
     new JoystickButton(driverController,XboxController.Button.kB.value).whileHeld(new RunBucketBack(cBucket));
     new JoystickButton(driverController, XboxController.Button.kX.value).whenPressed(new RunBackAuton(m_Chassis));
-    new JoystickButton(driverController,XboxController.Button.kBumperRight.value).whenPressed(new ToggleBucket(cBucket));
+    new JoystickButton(driverController,XboxController.Button.kBumperRight.value).whenPressed(new SetBucketBrake(cBucket));
   }
 
   /**
